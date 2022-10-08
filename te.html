@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Aria , sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #23242a;
+        }
+        .box{
+            position: relative;
+            width: 380px;
+            height: 420px;
+            background: #1c1c1c;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .box::before{
+            content:'';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent,#45f3ff,#45f3ff);
+            transform-origin: bottom right;
+            animation: animate 4s linear infinite;
+        }
+        .box::after{
+            content:'';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent,#45f3ff,#45f3ff);
+            transform-origin: bottom right;
+            animation: animate 4s linear infinite;
+            animation-delay: -2s;
+        }
+        @keyframes animate{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .form{
+            position: absolute;
+            inset: 2px;
+            border-radius: 8px;
+            background-color: #28292d;
+            z-index: 10;
+            padding: 80px 40px;
+            
+            display: flex;
+            flex-direction: column;
+        }
+        .text{
+            color:white;
+            margin-bottom: 25px;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+        .loading{
+            width:100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading .line-box{
+            padding: 0;
+            width: 80%;
+            height: 20px;
+            border: 2px solid #45f3ff;
+            border-radius:20px ;
+        }
+        .loading .line-box .line{
+            height: 20px;
+            border-radius: 20px;
+            background-color: #45f3ff;
+            animation: loading 5s forwards cubic-bezier(0,0,0,0);
+
+        }
+        @keyframes loading{
+            0%{
+                width: 0%;
+            }
+            100%{
+                width: 100%;
+            }
+        }
+        .con{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="form">
+            <div class="con">
+        <div class="text">
+            <h1>Loading...</h1>
+        </div>
+        <div class="loading">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
